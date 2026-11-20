@@ -317,3 +317,19 @@ body {
 .stagger-children.visible > *:nth-child(7) { transition-delay: 0.7s; opacity: 1; transform: translateY(0); }
 .stagger-children.visible > *:nth-child(8) { transition-delay: 0.8s; opacity: 1; transform: translateY(0); }
 .stagger-children.visible > *:nth-child(9) { transition-delay: 0.9s; opacity: 1; transform: translateY(0); }
+
+/* فرض التوسيط وتوازن المسافات في الأقسام */
+#about .grid,
+#vision .max-w-5xl,
+#goals .grid,
+#gallery .grid,
+#contact .max-w-6xl {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#vision .bg-white {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  transform: none !important;
+}
