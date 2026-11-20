@@ -539,7 +539,7 @@ const StatsSection: React.FC = () => {
   const [counters, setCounters] = useState({ volunteers: 0, initiatives: 0, beneficiaries: 0, partners: 0 });
   const hasAnimated = useRef(false);
 
-  const targets = { volunteers: 250, initiatives: 45, beneficiaries: 5000, partners: 30 };
+  const targets = { volunteers: 250, initiatives: 45, beneficiaries: 6385, partners: 20 };
 
   useEffect(() => {
     if (inView && !hasAnimated.current) {
