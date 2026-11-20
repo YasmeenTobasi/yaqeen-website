@@ -601,6 +601,9 @@ const StatsSection: React.FC = () => {
 const ContactSection: React.FC = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.15 });
 
+
+  const joinFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdGZ5zud9I7oNYxKseFG0P6Isxp8QaA_omu3HU5t5i9N-Kkcw/viewform?usp=dialog';
+
   return (
     <section id="contact" className={`${SECTION_PAD} bg-white`}>
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
@@ -612,7 +615,10 @@ const ContactSection: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-[#00A9A5] mb-4">
               تواصل معنا
             </h2>
-            <div className="w-20 h-1 mx-auto rounded-full" style={{ background: 'linear-gradient(90deg, #C9A227, #E8C547)' }} />
+            <div
+              className="w-20 h-1 mx-auto rounded-full"
+              style={{ background: 'linear-gradient(90deg, #C9A227, #E8C547)' }}
+            />
           </div>
 
           <div className="flex flex-col justify-center space-y-8">
@@ -671,16 +677,29 @@ const ContactSection: React.FC = () => {
             </div>
 
             <div className="pt-2">
-              <p className="text-[#2D2D2D] font-medium mb-8">تابعنا على</p>
-              <div className="flex gap-4">
+              <p className="text-[#2D2D2D] font-medium mb-6">تابعنا وانضم إلينا</p>
+              <div className="flex flex-wrap items-center gap-4">
+                {/* أيقونة إنستغرام */}
                 <a
                   href="https://www.instagram.com/yaqen._jo?fqnt=MTh2MWt0Ymg3bWExaQ=="
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="حساب مبادرة يقين على إنستغرام"
+                  title="إنستغرام"
                   className="w-12 h-12 rounded-full flex items-center justify-center border-2 border-[#C9A227]/30 text-[#C9A227] hover:bg-[#C9A227] hover:text-white transition-all duration-300"
                 >
                   <FiInstagram size={20} />
+                </a>
+
+                {/* زر وأيقونة فورم الانتساب */}
+                <a
+                  href={joinFormUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-[#00A9A5] hover:bg-[#007A77] text-white font-medium text-sm shadow-sm transition-all duration-300"
+                >
+                  <FiUsers size={18} />
+                  <span>فورم الانتساب للمبادرة</span>
                 </a>
               </div>
             </div>
@@ -690,7 +709,6 @@ const ContactSection: React.FC = () => {
     </section>
   );
 };
-
 // ==================== FOOTER ====================
 const Footer: React.FC = () => {
   return (
