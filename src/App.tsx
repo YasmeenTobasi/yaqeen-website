@@ -69,13 +69,6 @@ const Navbar: React.FC = () => {
                 {link.label}
               </a>
             ))}
-            <a
-              href="#contact"
-              className="px-6 py-2 rounded-full text-white font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg"
-              style={{ background: 'linear-gradient(135deg, #C9A227, #E8C547)' }}
-            >
-              انضم إلينا
-            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -112,14 +105,6 @@ const Navbar: React.FC = () => {
                 {link.label}
               </a>
             ))}
-            <a
-              href="#contact"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="mt-4 px-6 py-3 rounded-full text-white font-medium text-center"
-              style={{ background: 'linear-gradient(135deg, #C9A227, #E8C547)' }}
-            >
-              انضم إلينا
-            </a>
           </div>
         </div>
       </div>
@@ -196,13 +181,6 @@ const HeroSection: React.FC = () => {
           >
             تعرّف علينا
           </a>
-          <a
-            href="#contact"
-            className="px-8 py-3 rounded-full text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl"
-            style={{ background: 'linear-gradient(135deg, #C9A227, #E8C547)' }}
-          >
-            انضم كمتطوع
-          </a>
         </div>
       </div>
 
@@ -258,19 +236,18 @@ const AboutSection: React.FC = () => {
             </div>
 
             {/* Image */}
-            {/* Image */}
-          <div className="relative">
-            <div className="rounded-2xl overflow-hidden border-4 border-[#C9A227]/30 shadow-xl bg-white p-6 flex items-center justify-center aspect-[4/3]">
-              <img
-                src="/gallery/Logo.png"
-                alt="شعار مبادرة يقين"
-                className="max-h-full max-w-full object-contain"
-              />
+            <div className="relative">
+              <div className="rounded-2xl overflow-hidden border-4 border-[#C9A227]/30 shadow-xl bg-white p-6 flex items-center justify-center aspect-[4/3]">
+                <img
+                  src="/gallery/Logo.png"
+                  alt="شعار مبادرة يقين"
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+              {/* Decorative element */}
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 rounded-full border-4 border-[#C9A227]/20" />
+              <div className="absolute -top-4 -right-4 w-16 h-16 rounded-full bg-[#00A9A5]/10" />
             </div>
-            {/* Decorative element */}
-            <div className="absolute -bottom-4 -left-4 w-24 h-24 rounded-full border-4 border-[#C9A227]/20" />
-            <div className="absolute -top-4 -right-4 w-16 h-16 rounded-full bg-[#00A9A5]/10" />
-          </div>
           </div>
         </div>
       </div>
@@ -390,7 +367,7 @@ const GallerySection: React.FC = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
   const [lightboxImage, setLightboxImage] = useState<number | null>(null);
 
-const galleryItems = [
+  const galleryItems = [
     { id: 1, label: 'اطفال', color: 'from-[#00A9A5]/20 to-[#007A77]/20', image: '/gallery/اطفال.jpg' },
     { id: 2, label: 'افطار رمضان', color: 'from-[#C9A227]/20 to-[#E8C547]/20', image: '/gallery/افطار رمضان.jpg' },
     { id: 3, label: 'تنظيم احتفال', color: 'from-[#007A77]/20 to-[#00A9A5]/20', image: '/gallery/تنظيم احتفال.jpg' },
@@ -407,6 +384,7 @@ const galleryItems = [
     { id: 14, label: 'وقف ثريد', color: 'from-[#00A9A5]/20 to-[#C9A227]/20', image: '/gallery/وقف ثريد.jpg' },
     { id: 15, label: 'يوم الغذاء العالمي', color: 'from-[#007A77]/20 to-[#E8C547]/20', image: '/gallery/يوم الغذاء العالمي.jpg' },
   ];
+
   return (
     <section id="gallery" className="py-20 lg:py-28" style={{ backgroundColor: '#007A77' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -572,108 +550,58 @@ const ContactSection: React.FC = () => {
           {/* Section Title */}
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#00A9A5] mb-4">
-              تواصل معنا / انضم إلينا
+              تواصل معنا
             </h2>
             <div className="w-20 h-1 mx-auto rounded-full" style={{ background: 'linear-gradient(90deg, #C9A227, #E8C547)' }} />
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <div className="bg-[#FAFAF7] rounded-2xl p-8 shadow-lg border border-gray-100">
-              {isSubmitted ? (
-                <div className="text-center py-12">
-                  <div className="text-5xl mb-4">✅</div>
-                  <h3 className="text-2xl font-bold text-[#00A9A5] mb-2">تم الإرسال بنجاح!</h3>
-                  <p className="text-[#2D2D2D]/70">شكراً لتواصلك معنا، سنرد عليك في أقرب وقت</p>
+          {/* Contact Info */}
+          <div className="flex flex-col justify-center space-y-8">
+            <div className="grid sm:grid-cols-3 gap-6">
+              <div className="flex items-center gap-4 bg-[#FAFAF7] p-4 rounded-xl border border-gray-100">
+                <div className="w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #00A9A5, #007A77)' }}>
+                  <FiMail className="text-white text-lg" />
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label className="block text-[#2D2D2D] font-medium mb-2">الاسم</label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#00A9A5] focus:ring-2 focus:ring-[#00A9A5]/20 outline-none transition-all bg-white"
-                      placeholder="أدخل اسمك"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[#2D2D2D] font-medium mb-2">البريد الإلكتروني</label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#00A9A5] focus:ring-2 focus:ring-[#00A9A5]/20 outline-none transition-all bg-white"
-                      placeholder="أدخل بريدك الإلكتروني"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[#2D2D2D] font-medium mb-2">الرسالة</label>
-                    <textarea
-                      required
-                      rows={4}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#00A9A5] focus:ring-2 focus:ring-[#00A9A5]/20 outline-none transition-all bg-white resize-none"
-                      placeholder="اكتب رسالتك هنا..."
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full py-3 rounded-xl text-white font-medium transition-all duration-300 hover:scale-[1.02] hover:shadow-lg flex items-center justify-center gap-2"
-                    style={{ background: 'linear-gradient(135deg, #00A9A5, #007A77)' }}
-                  >
-                    <FiSend className="text-lg" />
-                    إرسال الرسالة
-                  </button>
-                </form>
-              )}
+                <div className="min-w-0">
+                  <p className="text-[#2D2D2D]/60 text-xs">البريد الإلكتروني</p>
+                  <p className="text-[#2D2D2D] font-medium text-sm break-all">info@yaqeen-initiative.org</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 bg-[#FAFAF7] p-4 rounded-xl border border-gray-100">
+                <div className="w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #C9A227, #E8C547)' }}>
+                  <FiPhone className="text-white text-lg" />
+                </div>
+                <div>
+                  <p className="text-[#2D2D2D]/60 text-xs">رقم الهاتف</p>
+                  <p className="text-[#2D2D2D] font-medium text-sm" dir="ltr">50 000 0000</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 bg-[#FAFAF7] p-4 rounded-xl border border-gray-100">
+                <div className="w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #00A9A5, #007A77)' }}>
+                  <FiMapPin className="text-white text-lg" />
+                </div>
+                <div>
+                  <p className="text-[#2D2D2D]/60 text-xs">الموقع</p>
+                  <p className="text-[#2D2D2D] font-medium text-sm">الأردن</p>
+                </div>
+              </div>
             </div>
 
-            {/* Contact Info */}
-            <div className="flex flex-col justify-center space-y-8">
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #00A9A5, #007A77)' }}>
-                  <FiMail className="text-white text-xl" />
-                </div>
-                <div>
-                  <p className="text-[#2D2D2D]/60 text-sm">البريد الإلكتروني</p>
-                  <p className="text-[#2D2D2D] font-medium">info@yaqeen-initiative.org</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #C9A227, #E8C547)' }}>
-                  <FiPhone className="text-white text-xl" />
-                </div>
-                <div>
-                  <p className="text-[#2D2D2D]/60 text-sm">رقم الهاتف</p>
-                  <p className="text-[#2D2D2D] font-medium" dir="ltr"> 50 000 0000</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #00A9A5, #007A77)' }}>
-                  <FiMapPin className="text-white text-xl" />
-                </div>
-                <div>
-                  <p className="text-[#2D2D2D]/60 text-sm">الموقع</p>
-                  <p className="text-[#2D2D2D] font-medium"> الأردن </p>
-                </div>
-              </div>
-
-              {/* Social Media */}
-              <div className="pt-8">
-                <p className="text-[#2D2D2D] font-medium mb-4">تابعنا على</p>
-                <div className="flex gap-4">
-                  
-                  <a href="#" className="w-12 h-12 rounded-full flex items-center justify-center border-2 border-[#C9A227]/30 text-[#C9A227] hover:bg-[#C9A227] hover:text-white transition-all duration-300">
-                    <FiInstagram size={20} />
-                  </a>
-                 
-          
-                </div>
+            {/* Social Media */}
+            <div className="pt-4">
+              <p className="text-[#2D2D2D] font-medium mb-8">تابعنا على</p>
+              <div className="flex gap-4">
+                <a
+                  href="https://www.instagram.com/yaqen._jo?fqnt=MTh2MWt0Ymg3bWExaQ=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="حساب مبادرة يقين على إنستغرام"
+                  className="w-12 h-12 rounded-full flex items-center justify-center border-2 border-[#C9A227]/30 text-[#C9A227] hover:bg-[#C9A227] hover:text-white transition-all duration-300"
+                >
+                  <FiInstagram size={20} />
+                </a>
               </div>
             </div>
           </div>
@@ -693,101 +621,61 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8 items-center">
           {/* Logo */}
-          <div className="flex flex-col items-center md:items-start">
-            <Logo size={60} showText={true} />
-            <p className="text-white/70 mt-4 text-sm text-center md:text-right">
-              مبادرة تطوعية شبابية<br />
-              عطاءٌ يصنع الأثر
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div className="text-center">
-            <h4 className="text-white font-bold mb-4">روابط سريعة</h4>
-            <div className="flex flex-col gap-2">
-              <a href="#home" className="text-white/70 hover:text-[#E8C547] transition-colors text-sm">الرئيسية</a>
-              <a href="#about" className="text-white/70 hover:text-[#E8C547] transition-colors text-sm">عن يقين</a>
-              <a href="#vision" className="text-white/70 hover:text-[#E8C547] transition-colors text-sm">الرؤية</a>
-              <a href="#goals" className="text-white/70 hover:text-[#E8C547] transition-colors text-sm">الأهداف</a>
-              <a href="#gallery" className="text-white/70 hover:text-[#E8C547] transition-colors text-sm">معرض الصور</a>
-              <a href="#contact" className="text-white/70 hover:text-[#E8C547] transition-colors text-sm">تواصل معنا</a>
-            </div>
-          </div>
-
-          {/* Social & Contact */}
-          <div className="text-center md:text-left">
-            <h4 className="text-white font-bold mb-4">تواصل معنا</h4>
-            <div className="flex justify-center md:justify-start gap-4 mb-4">
-              
-              <a href="#" className="w-10 h-10 rounded-full flex items-center justify-center bg-white/10 text-white hover:bg-[#C9A227] transition-all duration-300">
-                <FiInstagram size={18} />
-              </a>
-            
-            </div>
-            <p className="text-white/70 text-sm">info@yaqeen-initiative.org</p>
-          </div>
-        </div>
-
-        {/* Copyright */}
-        <div className="mt-12 pt-8 border-t border-white/10 text-center">
-          <p className="text-white/60 text-sm">
-            © 2026 مبادرة يقين - جميع الحقوق محفوظة
-          </p>
         </div>
       </div>
     </footer>
   );
 };
 
-// ==================== BACK TO TOP ====================
-const BackToTop: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
+// ==================== APP ====================
+const App: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1200);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsVisible(window.scrollY > 500);
+      setShowScrollTop(window.scrollY > 400);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  if (!isVisible) return null;
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
-    <button
-      className="back-to-top"
-      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      aria-label="العودة للأعلى"
-    >
-      <FiArrowUp size={20} />
-    </button>
-  );
-};
-
-// ==================== MAIN APP ====================
-const App: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  return (
-    <div className="min-h-screen" style={{ backgroundColor: '#FAFAF7' }}>
+    <div dir="rtl" className="min-h-screen">
       <LoadingScreen isLoading={isLoading} />
       <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <VisionSection />
-      <GoalsSection />
-      <GallerySection />
-      <StatsSection />
-      <ContactSection />
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <VisionSection />
+        <GoalsSection />
+        <GallerySection />
+        <StatsSection />
+        <ContactSection />
+      </main>
       <Footer />
-      <BackToTop />
+
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          aria-label="العودة للأعلى"
+          className="fixed bottom-6 left-6 z-40 w-12 h-12 rounded-full text-white shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+          style={{ background: 'linear-gradient(135deg, #00A9A5, #007A77)' }}
+        >
+          <FiArrowUp size={20} />
+        </button>
+      )}
     </div>
   );
 };
