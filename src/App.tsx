@@ -4,6 +4,10 @@ import { FiMenu, FiX, FiArrowUp, FiMail, FiPhone, FiMapPin, FiUsers, FiEye, FiCa
 import { FaHandsHelping, FaLightbulb, FaChartLine, FaSeedling, FaGlobe } from 'react-icons/fa';
 import Logo from './components/Logo';
 
+// ==================== نظام المسافات الموحّد ====================
+const SECTION_PAD = 'py-20 lg:py-28 scroll-mt-20 lg:scroll-mt-24';
+const HEADING_PAD = 'text-center mb-14 lg:mb-16';
+
 // ==================== LOADING SCREEN ====================
 const LoadingScreen: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
   return (
@@ -48,7 +52,7 @@ const Navbar: React.FC = () => {
         isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2 shrink-0">
@@ -93,7 +97,11 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`mobile-menu fixed top-0 right-0 w-72 max-w-[85vw] h-full bg-white shadow-2xl z-50 ${isMobileMenuOpen ? 'open' : ''}`}>
+      <div
+        className={`mobile-menu fixed top-0 right-0 w-72 max-w-[85vw] h-full bg-white shadow-2xl z-50 ${
+          isMobileMenuOpen ? 'open' : ''
+        }`}
+      >
         <div className="p-6">
           <div className="flex justify-between items-center mb-8">
             <Logo size={40} showText={false} />
@@ -135,13 +143,11 @@ const HeroSection: React.FC = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 lg:pt-20">
-      {/* Background */}
       <div
         className="absolute inset-0"
         style={{ background: 'linear-gradient(135deg, #00A9A5 0%, #007A77 50%, #005A57 100%)' }}
       />
 
-      {/* Animated particles */}
       {particles.map((p) => (
         <div
           key={p.id}
@@ -157,7 +163,6 @@ const HeroSection: React.FC = () => {
         />
       ))}
 
-      {/* Sun rays decorative element */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] sm:w-[500px] sm:h-[500px] lg:w-[600px] lg:h-[600px] opacity-10 pointer-events-none">
         <div className="animate-rotate-slow w-full h-full">
           {Array.from({ length: 12 }).map((_, i) => (
@@ -170,8 +175,7 @@ const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 max-w-3xl mx-auto">
+      <div className="relative z-10 text-center px-5 sm:px-8 max-w-3xl mx-auto">
         <div className="animate-scale-in mb-6">
           <Logo size={150} showText={false} className="animate-float mx-auto" />
         </div>
@@ -194,7 +198,6 @@ const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <div className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce-slow">
         <div className="w-8 h-12 rounded-full border-2 border-white/50 flex items-start justify-center p-2">
           <div className="w-1.5 h-3 bg-white/70 rounded-full animate-bounce" />
@@ -209,14 +212,13 @@ const AboutSection: React.FC = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.15 });
 
   return (
-    <section id="about" className="py-16 sm:py-20 lg:py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className={`${SECTION_PAD} bg-white`}>
+      <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div
           ref={ref}
           className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
         >
-          {/* Section Title */}
-          <div className="text-center mb-12 sm:mb-16">
+          <div className={HEADING_PAD}>
             <h2 className="text-3xl md:text-4xl font-bold text-[#00A9A5] mb-4" style={{ fontFamily: 'Tajawal' }}>
               نبذة عن يقين
             </h2>
@@ -224,7 +226,6 @@ const AboutSection: React.FC = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
-            {/* Text Content */}
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div
@@ -251,13 +252,12 @@ const AboutSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Image */}
-            <div className="w-full max-w-xl mx-auto lg:max-w-none">
-              <div className="rounded-2xl overflow-hidden border-2 sm:border-4 border-[#C9A227]/30 shadow-lg bg-white p-5 sm:p-8 flex items-center justify-center aspect-[4/3]">
+            <div className="w-full max-w-lg mx-auto">
+              <div className="rounded-2xl overflow-hidden border-2 sm:border-4 border-[#C9A227]/30 shadow-lg bg-white p-6 sm:p-8 flex items-center justify-center h-[300px] sm:h-[360px]">
                 <img
                   src="/gallery/Logo.png"
                   alt="شعار مبادرة يقين"
-                  className="max-h-full max-w-full object-contain"
+                  className="h-full w-full object-contain"
                 />
               </div>
             </div>
@@ -273,14 +273,13 @@ const VisionSection: React.FC = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.15 });
 
   return (
-    <section id="vision" className="py-16 sm:py-20 lg:py-28" style={{ backgroundColor: '#E8F5F5' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="vision" className={SECTION_PAD} style={{ backgroundColor: '#E8F5F5' }}>
+      <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div
           ref={ref}
           className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
         >
-          {/* Section Title */}
-          <div className="text-center mb-12 sm:mb-16">
+          <div className={HEADING_PAD}>
             <div
               className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-5"
               style={{ background: 'linear-gradient(135deg, #C9A227, #E8C547)' }}
@@ -293,7 +292,6 @@ const VisionSection: React.FC = () => {
             <div className="w-20 h-1 mx-auto rounded-full" style={{ background: 'linear-gradient(90deg, #C9A227, #E8C547)' }} />
           </div>
 
-          {/* Vision Card */}
           <div className="w-full max-w-3xl mx-auto">
             <div className="bg-white rounded-2xl p-6 sm:p-10 md:p-12 border-2 border-[#C9A227]/20 shadow-lg text-center">
               <div className="text-4xl sm:text-5xl mb-5">🌟</div>
@@ -346,21 +344,19 @@ const GoalsSection: React.FC = () => {
   ];
 
   return (
-    <section id="goals" className="py-16 sm:py-20 lg:py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="goals" className={`${SECTION_PAD} bg-white`}>
+      <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div
           ref={ref}
           className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
         >
-          {/* Section Title */}
-          <div className="text-center mb-12 sm:mb-16">
+          <div className={HEADING_PAD}>
             <h2 className="text-3xl md:text-4xl font-bold text-[#00A9A5] mb-4">
               الأهداف الاستراتيجية
             </h2>
             <div className="w-20 h-1 mx-auto rounded-full" style={{ background: 'linear-gradient(90deg, #C9A227, #E8C547)' }} />
           </div>
 
-          {/* Goals Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {goals.map((goal, index) => (
               <div
@@ -410,14 +406,13 @@ const GallerySection: React.FC = () => {
   const selectedItem = galleryItems.find((i) => i.id === lightboxImage) || null;
 
   return (
-    <section id="gallery" className="py-16 sm:py-20 lg:py-28" style={{ backgroundColor: '#007A77' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="gallery" className={SECTION_PAD} style={{ backgroundColor: '#007A77' }}>
+      <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div
           ref={ref}
           className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
         >
-          {/* Section Title */}
-          <div className="text-center mb-12 sm:mb-16">
+          <div className={HEADING_PAD}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: 'Amiri, serif', color: '#E8C547' }}>
               لحظات من يقين
             </h2>
@@ -425,8 +420,7 @@ const GallerySection: React.FC = () => {
             <p className="text-white/75 mt-4 text-base sm:text-lg">لقطات من مبادراتنا وأنشطتنا</p>
           </div>
 
-          {/* Gallery Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5 lg:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {galleryItems.map((item) => (
               <button
                 key={item.id}
@@ -462,7 +456,6 @@ const GallerySection: React.FC = () => {
         </div>
       </div>
 
-      {/* Lightbox */}
       {selectedItem && (
         <div
           className="lightbox-overlay fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
@@ -543,8 +536,8 @@ const StatsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-14 sm:py-16 lg:py-20 bg-[#007A77]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className={`${SECTION_PAD} border-t-4 border-[#C9A227]/30`} style={{ backgroundColor: '#005A57' }}>
+      <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div ref={ref} className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
@@ -569,21 +562,19 @@ const ContactSection: React.FC = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.15 });
 
   return (
-    <section id="contact" className="py-16 sm:py-20 lg:py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className={`${SECTION_PAD} bg-white`}>
+      <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div
           ref={ref}
           className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
         >
-          {/* Section Title */}
-          <div className="text-center mb-12 sm:mb-16">
+          <div className={HEADING_PAD}>
             <h2 className="text-3xl md:text-4xl font-bold text-[#00A9A5] mb-4">
               تواصل معنا
             </h2>
             <div className="w-20 h-1 mx-auto rounded-full" style={{ background: 'linear-gradient(90deg, #C9A227, #E8C547)' }} />
           </div>
 
-          {/* Contact Info */}
           <div className="flex flex-col justify-center space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
               <div className="flex items-center gap-4 bg-[#FAFAF7] p-4 sm:p-5 rounded-xl border border-gray-100">
@@ -626,7 +617,6 @@ const ContactSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Social Media */}
             <div className="pt-2">
               <p className="text-[#2D2D2D] font-medium mb-8">تابعنا على</p>
               <div className="flex gap-4">
@@ -653,7 +643,7 @@ const Footer: React.FC = () => {
   return (
     <footer style={{ backgroundColor: '#007A77' }}>
       <div className="h-1" style={{ background: 'linear-gradient(90deg, transparent, #C9A227, #E8C547, #C9A227, transparent)' }} />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 py-10">
         <div className="text-center text-white/80 text-sm">
           مبادرة يقين — جميع الحقوق محفوظة
         </div>
