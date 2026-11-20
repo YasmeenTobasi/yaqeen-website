@@ -353,6 +353,26 @@ const GoalsSection: React.FC = () => {
     },
   ];
 
+  const firstRowGoals = goals.slice(0, 3);
+  const secondRowGoals = goals.slice(3);
+
+  const renderGoalCard = (goal: (typeof goals)[number], index: number) => (
+    <div
+      key={index}
+      style={{ transform: 'none' }}
+      className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-md text-center flex flex-col items-center justify-start w-full"
+    >
+      <div
+        className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-5 text-[#00A9A5]"
+        style={{ backgroundColor: '#E8F5F5' }}
+      >
+        {goal.icon}
+      </div>
+      <h3 className="text-xl font-bold text-[#007A77] mb-3">{goal.title}</h3>
+      <p className="text-[#2D2D2D]/80 leading-relaxed text-sm sm:text-base">{goal.description}</p>
+    </div>
+  );
+
   return (
     <section
       id="goals"
@@ -364,7 +384,8 @@ const GoalsSection: React.FC = () => {
           ref={ref}
           className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
         >
-          <div className="text-center mb-14">
+          {/* مساحة أوضح بين العنوان والبطاقات */}
+          <div className="text-center mb-16 lg:mb-20">
             <h2 className="text-3xl md:text-4xl font-bold text-[#00A9A5] mb-3">
               الأهداف الاستراتيجية
             </h2>
@@ -374,30 +395,31 @@ const GoalsSection: React.FC = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {goals.map((goal, index) => (
-              <div
-                key={index}
-                style={{ transform: 'none' }}
-                className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-md text-center flex flex-col items-center justify-start"
-              >
+          <div className="space-y-6 lg:space-y-8">
+            {/* الصف الأول: 3 بطاقات */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              {firstRowGoals.map((goal, idx) => renderGoalCard(goal, idx))}
+            </div>
+
+            {/* الصف الثاني: بطاقتان متمركزتان في المنتصف على الشاشات الكبيرة */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8">
+              {secondRowGoals.map((goal, idx) => (
                 <div
-                  className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-5 text-[#00A9A5]"
-                  style={{ backgroundColor: '#E8F5F5' }}
+                  key={idx + 3}
+                  className={`w-full ${
+                    idx === 0 ? 'lg:col-start-2 lg:col-span-2' : 'lg:col-span-2'
+                  }`}
                 >
-                  {goal.icon}
+                  {renderGoalCard(goal, idx + 3)}
                 </div>
-                <h3 className="text-xl font-bold text-[#007A77] mb-3">{goal.title}</h3>
-                <p className="text-[#2D2D2D]/80 leading-relaxed text-sm sm:text-base">{goal.description}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 };
-
 // ==================== GALLERY SECTION ====================
 const GallerySection: React.FC = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
