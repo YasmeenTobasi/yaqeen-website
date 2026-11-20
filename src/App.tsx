@@ -617,7 +617,11 @@ const ContactSection: React.FC = () => {
 
           <div className="flex flex-col justify-center space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-              <div className="flex items-center gap-4 bg-[#FAFAF7] p-4 sm:p-5 rounded-xl border border-gray-100">
+              {/* البريد الإلكتروني */}
+              <a
+                href="mailto:yaqeen.joyouth@gmail.com"
+                className="flex items-center gap-4 bg-[#FAFAF7] hover:bg-[#E8F5F5]/60 p-4 sm:p-5 rounded-xl border border-gray-100 hover:border-[#00A9A5]/30 transition-all duration-300 group"
+              >
                 <div
                   className="w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center"
                   style={{ background: 'linear-gradient(135deg, #00A9A5, #007A77)' }}
@@ -626,11 +630,17 @@ const ContactSection: React.FC = () => {
                 </div>
                 <div className="min-w-0">
                   <p className="text-[#2D2D2D]/60 text-xs mb-0.5">البريد الإلكتروني</p>
-                  <p className="text-[#2D2D2D] font-medium text-sm break-all">yaqeen.joyouth@gmail.com</p>
+                  <p className="text-[#2D2D2D] group-hover:text-[#007A77] font-medium text-sm break-all transition-colors">
+                    yaqeen.joyouth@gmail.com
+                  </p>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-center gap-4 bg-[#FAFAF7] p-4 sm:p-5 rounded-xl border border-gray-100">
+              {/* رقم الهاتف */}
+              <a
+                href="tel:+962779065911"
+                className="flex items-center gap-4 bg-[#FAFAF7] hover:bg-[#E8F5F5]/60 p-4 sm:p-5 rounded-xl border border-gray-100 hover:border-[#C9A227]/40 transition-all duration-300 group"
+              >
                 <div
                   className="w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center"
                   style={{ background: 'linear-gradient(135deg, #C9A227, #E8C547)' }}
@@ -639,10 +649,13 @@ const ContactSection: React.FC = () => {
                 </div>
                 <div className="min-w-0">
                   <p className="text-[#2D2D2D]/60 text-xs mb-0.5">رقم الهاتف</p>
-                  <p className="text-[#2D2D2D] font-medium text-sm" dir="ltr">0779065911</p>
+                  <p className="text-[#2D2D2D] group-hover:text-[#007A77] font-medium text-sm transition-colors" dir="ltr">
+                    0779065911
+                  </p>
                 </div>
-              </div>
+              </a>
 
+              {/* الموقع */}
               <div className="flex items-center gap-4 bg-[#FAFAF7] p-4 sm:p-5 rounded-xl border border-gray-100">
                 <div
                   className="w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center"
