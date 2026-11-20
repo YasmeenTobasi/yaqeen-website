@@ -626,7 +626,7 @@ const ContactSection: React.FC = () => {
                 </div>
                 <div className="min-w-0">
                   <p className="text-[#2D2D2D]/60 text-xs mb-0.5">البريد الإلكتروني</p>
-                  <p className="text-[#2D2D2D] font-medium text-sm break-all">info@yaqeen-initiative.org</p>
+                  <p className="text-[#2D2D2D] font-medium text-sm break-all">yaqeen.joyouth@gmail.com</p>
                 </div>
               </div>
 
@@ -639,7 +639,7 @@ const ContactSection: React.FC = () => {
                 </div>
                 <div className="min-w-0">
                   <p className="text-[#2D2D2D]/60 text-xs mb-0.5">رقم الهاتف</p>
-                  <p className="text-[#2D2D2D] font-medium text-sm" dir="ltr">50 000 0000</p>
+                  <p className="text-[#2D2D2D] font-medium text-sm" dir="ltr">0779065911</p>
                 </div>
               </div>
 
