@@ -273,27 +273,37 @@ const VisionSection: React.FC = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.15 });
 
   return (
-    <section id="vision" className={SECTION_PAD} style={{ backgroundColor: '#E8F5F5' }}>
-      <div className="max-w-6xl mx-auto px-5 sm:px-8">
+    <section
+      id="vision"
+      style={{ backgroundColor: '#E8F5F5', paddingTop: '96px', paddingBottom: '96px' }}
+      className="scroll-mt-20"
+    >
+      <div className="max-w-5xl mx-auto px-5 sm:px-8">
         <div
           ref={ref}
           className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
         >
-          <div className={HEADING_PAD}>
+          <div className="text-center mb-12">
             <div
-              className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-5"
+              className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4 mx-auto"
               style={{ background: 'linear-gradient(135deg, #C9A227, #E8C547)' }}
             >
               <FiEye className="text-white text-2xl" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#00A9A5] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#00A9A5] mb-3">
               رؤيتنا
             </h2>
-            <div className="w-20 h-1 mx-auto rounded-full" style={{ background: 'linear-gradient(90deg, #C9A227, #E8C547)' }} />
+            <div
+              className="w-20 h-1 rounded-full"
+              style={{ margin: '0 auto', background: 'linear-gradient(90deg, #C9A227, #E8C547)' }}
+            />
           </div>
 
-          <div className="w-full max-w-3xl mx-auto">
-            <div className="bg-white rounded-2xl p-6 sm:p-10 md:p-12 border-2 border-[#C9A227]/20 shadow-lg text-center">
+          <div style={{ maxWidth: '720px', margin: '0 auto', width: '100%' }}>
+            <div
+              style={{ transform: 'none', marginLeft: 'auto', marginRight: 'auto' }}
+              className="bg-white rounded-2xl p-6 sm:p-10 md:p-12 border-2 border-[#C9A227]/20 shadow-lg text-center"
+            >
               <div className="text-4xl sm:text-5xl mb-5">🌟</div>
               <p className="text-lg sm:text-xl md:text-2xl text-[#2D2D2D] leading-relaxed font-medium">
                 أن نكون المبادرة الشبابية الرائدة في بناء مجتمع متكافل، حيث يصبح العطاء ثقافة راسخة والتطوع أسلوب حياة لكل شاب وشابة يسعى لصنع الفرق.
@@ -344,24 +354,32 @@ const GoalsSection: React.FC = () => {
   ];
 
   return (
-    <section id="goals" className={`${SECTION_PAD} bg-white`}>
+    <section
+      id="goals"
+      style={{ backgroundColor: '#FFFFFF', paddingTop: '96px', paddingBottom: '96px' }}
+      className="scroll-mt-20"
+    >
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div
           ref={ref}
           className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
         >
-          <div className={HEADING_PAD}>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#00A9A5] mb-4">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#00A9A5] mb-3">
               الأهداف الاستراتيجية
             </h2>
-            <div className="w-20 h-1 mx-auto rounded-full" style={{ background: 'linear-gradient(90deg, #C9A227, #E8C547)' }} />
+            <div
+              className="w-20 h-1 rounded-full"
+              style={{ margin: '0 auto', background: 'linear-gradient(90deg, #C9A227, #E8C547)' }}
+            />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {goals.map((goal, index) => (
               <div
                 key={index}
-                className="goal-card bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-md text-center flex flex-col items-center justify-start"
+                style={{ transform: 'none' }}
+                className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-md text-center flex flex-col items-center justify-start"
               >
                 <div
                   className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-5 text-[#00A9A5]"
